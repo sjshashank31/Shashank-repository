@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="demo"></div>
+	<button onclick="myFunction()">Pop</button>
+	<button onclick="myFunction1()">Push</button>
+<script type="text/javascript">	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits;
+
+function myFunction() {
+  fruits.pop();
+  document.getElementById("demo").innerHTML = fruits;
+}
+function myFunction1() {
+  fruits.push("Kiwi");
+  document.getElementById("demo").innerHTML = fruits;
+}
+</script>
+
+</body>
+</html>
