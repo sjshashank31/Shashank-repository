@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Quiz</title>
+	<style type="text/css">
+		#questionCounter{
+      top: 20px;
+
+			margin-left: 30px;
+			padding: 2px;
+      font-size: 20px;
+
+		}
+	button {
+		top: 500px;
+  		background-color: #4CAF50;
+  		border: none;
+  		color: white;
+  		padding: 15px 32px;
+  		text-align: center;
+  		text-decoration: none;
+  		display: inline-block;
+  		font-size: 16px;
+  		margin: 4px 2px;
+  		cursor: pointer;
+			}
+	#container{
+    margin : 20px auto;
+    background-color: white; 
+    height: 900px;
+    width : 900px;
+    border-radius: 5px;
+    border: 3px solid red;
+    box-shadow: 0px 5px 15px 0px;
+    position: relative;
+   }
+   #question{
+    font-size: 25px;
+    top: 100px;
+    margin-left: 30px;
+    position: absolute;
+    padding: 15px;
+
+  } #question p{
+    margin : 0;
+    padding : 10px;
+    font-size: 1.25em;
+    background-color: lightpink;
+}
+
+
+#option{
+    font-size: 18px;
+    position: absolute;
+    margin-left: 30px;
+    top : 200px;
+    padding : 10px;
+
+}
+#option p{
+    margin : 0;
+    padding : 15px;
+    font-size: 1.25em;
+    background-color: lightblue;
+}
+
+#explaination
+{   position: absolute;
+    font-size:20px; 
+    margin-left: 35px;
+    top : 500px;
+  
+
+}
+ #explaination p{
+    margin : 0;
+    padding : 15px;
+    font-size: 1.25em;
+    background-color: lightgreen;
+}
+
+
+
+ #A
+ { top: 700px;
+  position: relative;
+ 	float: right;
+ }
+
+ #B
+ { top: 700px;
+  position: relative;
+ 	float: left;
+ }
+</style>
+</head>
+<body id = "container" onload="renderQuestion()">
+
+	<div id="questionCounter"></div>
+	<div id="question"></div>
+	
+	<div id="option">
+	<div id="optionA"></div>
+	<div id="optionB"></div>
+	<div id="optionC"></div>
+	<div id="optionD"></div>
+   </div>
+
+	
+     <button type="button" id="A" onclick="nextQuestion()">Next > </button>
+    <button type="button" id="B" onclick="previousQuestion()"> < previous </button>
+    <div id="explaination"></div>
+   </div>
+
+
+<script type="text/javascript">
+	var  questions = [
+    {
+        question : "Question : What does HTML stand for?",
+        choiceA : "A: hyper text markup language",
+        choiceB : "B: Wrong",
+        choiceC : "C: Wrong",
+        choiceD : "D :Wrong",
+        correct : "A",
+        exp     : "Explaination: explaination will go here:"
+    },{
+        question : "Question : What does CSS stand for?",
+        choiceA : "A: Wrong",
+        choiceB : "B: Correct",
+        choiceC : "C: Wrong",
+        choiceD : "D: Wrong",
+        correct : "B",
+        exp : "Explaination will go here"
+    },{
+        question : "Question : What does JS stand for?",
+        choiceA : "A: Wrong",
+        choiceB : "B: Wrong",
+        choiceC : "C: Correct",
+        choiceD : "D: Wrong",
+        correct : "C",
+        exp : "Explaination will go here"
+    }
+];
+
+// create some variables
+const optionA = document.getElementById("optionA");
+const optionB = document.getElementById("optionB");
+const optionC = document.getElementById("optionC");
+const optionD = document.getElementById("optionD");
+const question = document.getElementById("question");
+const questionCounter = document.getElementById("questionCounter");
+const explaination = document.getElementById("explaination");
+const lastQuestion = questions.length - 1;
+var runningQuestion = 0;
+
+
+
+// render a question
+function renderQuestion(){
+    var q = questions[runningQuestion];
+
+ const m = questions.length;
+const n = runningQuestion+1;
+
+    questionCounter.innerHTML="<p><b> Question " + n +" of " + m + ".</b></p>";
+    question.innerHTML ="<p>"+ q.question +"</p>";
+    optionA.innerHTML = "<p>"+ q.choiceA +"</p>";
+    optionB.innerHTML ="<p>"+ q.choiceB +"</p>";
+    optionC.innerHTML = "<p>"+q.choiceC +"</p>";
+    optionD.innerHTML = "<p>"+q.choiceD +"</p>";
+    explaination.innerHTML ="<p>" +q.exp+ "</p>";
+}
+
+ function nextQuestion()
+ {
+ 	if(runningQuestion<lastQuestion)
+ 		{runningQuestion++;
+ 			
+ 			renderQuestion();}
+ }
+ function previousQuestion()
+ {
+ 	if(runningQuestion>0)
+ 		{runningQuestion--;
+ 			renderQuestion();}
+ }
+
+	
+</script>
+</body>
+</html>
