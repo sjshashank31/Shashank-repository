@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+</head>
+<body>
+	<form name="myform">
+	User Name : <input type="text" name="username" value="" required>
+	Password : <input type="password" name="psw" value="" required>
+</form>
+<span id="message"></span>
+	<button type="button" onclick ="myFunction()">Submit</button>
+	<script type="text/javascript">
+		function myFunction() {
+			var x = myform.username.value;
+			var y = myform.psw.value;
+
+			if(x== "admin" || y=="password")
+			{
+				message.innerHTML = "welcome";
+
+			}
+			else
+			{
+				message.innerHTML = "password incorrect";
+			}
+		}
+	</script>
+</body>
+</html>
