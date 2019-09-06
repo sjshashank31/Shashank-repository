@@ -1,0 +1,102 @@
+<html>
+
+<head>
+
+<title> Student Registration Form</title>
+
+<script>
+function checkName()
+{
+	var name=document.getElementById("name").value;
+	var patt=/^[A-Za-z]+$/;
+
+	if(!patt.test(name))
+	{
+		document.getElementById("ername").innerHTML="Invalid name..please enter string".fontcolor('red');
+		document.getElementById("ername").style.display='block';
+		return false;
+	}
+	else
+	{
+		document.getElementById("ername").innerHTML="";
+		document.getElementById("ername").style.display='block';
+		return true;
+	}
+}
+
+function checkRoll()
+{
+	var roll=document.getElementById("number").value;
+	var patt=/^[0-9]{7}$/;
+
+	if(!patt.test(roll))
+	{
+		document.getElementById("erroll").innerHTML="Invalid roll number..please enter 7 digit number".fontcolor('red');
+		document.getElementById("erroll").style.display='block';
+		return false;
+	}
+	else
+	{
+		document.getElementById("erroll").innerHTML="";
+		document.getElementById("erroll").style.display='block';	
+		return true;
+	}
+}
+
+function check(){
+	if(checkName()&&checkRoll())
+		{
+			var n=document.getElementById("name").value;
+			var r=document.getElementById("number").value;
+			var d=new Date(document.getElementById("date").value);
+
+			var months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+			alert("Registration successful!\n"+n+"\n"+r+"\n"+d.getDate()+" "+months[d.getMonth()]+" "+d.getFullYear());
+		}
+	else
+		{
+			alert("Registration failed");
+		}
+}
+
+</script>
+
+</head>
+
+<body>
+	<div>
+		<div>
+			<h1> Student Registration Form </h1>
+		</div>
+
+		<div>
+		<form>
+			<div>
+			<label>Name</label>
+			<input type="text" id="name" placeholder="Enter name here" onkeyup=" return checkName()"><br>
+			</div>
+
+			<div id='ername' style="height:20px;"> </div><br>
+			
+			<div>
+			<label>Roll number</label>
+			<input type="text" id="number" placeholder="Enter roll number" onkeyup=" return checkRoll()"><br>
+			</div>
+
+			<div id='erroll' style="height:20px;"> </div><br>
+
+			<div>
+			<label>Date of birth</label>
+			<input type="Date" id="date"><br><br>
+			</div>
+
+			<div id='erdate' style="height:20px;"> </div><br>
+
+			<input type="button" value="Submit" onclick="check()"><br><br>
+		</form>
+		
+		</div>
+	</div>
+</body>
+</html>
