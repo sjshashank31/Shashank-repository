@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Displaying Date and Time</title>
+	<style type="text/css">
+		body{
+			background-color: black;
+		}
+		#clock
+		{
+			color: dodgerblue;
+			box-shadow: 0px 0px 2px 2px;
+			width:40%;
+			margin: 200px 200px;
+			height: 100px;
+			font-size: 50px;
+			padding: 10px 10px;
+			text-align: center;
+			border: 2px dodgerblue;
+
+
+		}	</style>
+</head>
+<body>
+<div id="clock"></div>
+<script type="text/javascript">
+	function currentTime()
+	{
+		var date = new Date();
+		var h = date.getHours();
+		var m = date.getMinutes();
+		var s = date.getSeconds();
+		var mid = "AM";
+		mid = (h>=12) ? "PM" : "AM";
+		h= (h==0) ? 12 : ((h>12) ? (h-12) : h ); 
+		h = updateTime(h);
+		m = updateTime(m);
+		s = updateTime(s);
+		document.getElementById("clock").innerHTML = h + ":" + m + ":" + s +" " +mid;
+		var t =setTimeout(function() {currentTime();}, 1000);
+
+	}
+	function updateTime(k)
+	{
+		if(k<10)
+		{
+			return "0"+k;
+		}
+		else
+		{
+			return k;
+		}
+	}
+	currentTime();
+</script>
+
+</body>
+</html>
