@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Working With CheckBoxes</title>
+	
+</head>
+<body>
+	<form><center><br><b> Value: </b>
+		<input type="text" name="entry" onchange="calculate(this.form,this.name);"><br><br>
+	<b> Action: </b>
+		<input type="checkbox" name="square" onclick="calculate(this.form,this.name);"> Square <br><br>
+	<b> Result: </b>
+	<input type="text" name="result" onchange ="calculate(this.form,this.name);" value = 0 >
+</center></form>
+	
+	<script type="text/javascript">
+		function calculate(form,callingfield)
+		{	
+			if(callingfield=="result")
+			{
+				if(form.square.checked)
+				{
+					form.entry.value = Math.sqrt(form.result.value);
+				}
+				else
+				{
+					form.entry.value = form.result.value/2;
+				}
+			}
+			else
+			{
+				if(form.square.checked)
+				{
+					form.result.value = form.entry.value*form.entry.value;
+				}
+				else
+				{
+					form.result.value = form.entry.value*2;
+				}
+			}
+		}
+	</script>
+</body>
+</html>
