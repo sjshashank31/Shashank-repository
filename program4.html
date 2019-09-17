@@ -1,24 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+<title>4</title>
+<script type="text/javascript">
+var arr = new Array();
+function push_element()
+{   var n1 = document.getElementById("1");
+if(n1.value!="") 
+{alert("element insterted:"+n1.value);
+arr.push(n1.value);
+//alert(arr);
+n1.value="";
+display();
+}
+else
+alert("Please enter a valid no.");
+}
+
+function pop_element()
+{   var n =document.getElementById("2");
+if(arr.length>0)
+{n.value=arr.pop();
+alert("element removed");
+display();
+}
+else
+{alert("There is no element in stack");
+n.value="";
+}
+}
+
+function display()
+{
+var disp=document.getElementById("disp");
+var temp="";
+for (var i = 0; i < arr.length; i++) {
+temp+=arr[i]+" ";
+}
+disp.value=temp;
+}
+
+</script>
 </head>
 <body>
-	<div id="demo"></div>
-	<button onclick="myFunction()">Pop</button>
-	<button onclick="myFunction1()">Push</button>
-<script type="text/javascript">	var fruits = ["Banana", "Orange", "Apple", "Mango"];
-document.getElementById("demo").innerHTML = fruits;
-
-function myFunction() {
-  fruits.pop();
-  document.getElementById("demo").innerHTML = fruits;
-}
-function myFunction1() {
-  fruits.push("Kiwi");
-  document.getElementById("demo").innerHTML = fruits;
-}
-</script>
-
+	<marquee><h3>JAVASCRIPT PROGRAM NO. 4</h3></marquee>
+<form>
+ADD ELEMENT<input type="number" id="1" ><br>
+<input type="button" value="ADD" onclick="push_element()"><br>
+LAST REMOVED ELEMNT<input type="number" id="2" ><br>
+<input type="button" value="DELETE" onclick="pop_element()"><br>
+stack:<input type="text" id="disp" ><br>
+</form>
 </body>
 </html>
