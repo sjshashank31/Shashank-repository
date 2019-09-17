@@ -7,8 +7,9 @@
 <p id="text">This Text Will Be Blue After 2 Minutes From Pressing The Button </p>
 <button onclick="myFunction()">Click Me</button><br><br>
 
-<img src="download.jpg" id="image"><br>
-<button onclick="myFunction1()">Click Me</button>
+<img src="image.jpg" id="image"><br>
+<button onclick="move()">Click Me</button>
+<button onclick="stop()">Stop</button>
 <script type="text/javascript">
  
 function myFunction()
@@ -17,20 +18,25 @@ function myFunction()
       setTimeout(function(){x.style.color="blue"},2000);
   }
   
-function myFunction1()
-{ 
+var id;
 var elem = document.getElementById("image");
  var marginLeft = 0;
-  var id = setInterval(frame, 300);
   function frame() {
-    if (marginLeft == 80) {
-      clearInterval(id);
-    } else {
+    
       marginLeft=marginLeft+10; 
       elem.style.marginLeft = marginLeft + '%'; 
-    }
+    
   }
-}
+  function move()
+  {
+    id = setInterval(frame, 300);
+  }
+  function stop()
+  {
+  clearInterval(id);
+  }
+
+
 </script>
 
 </body>
